@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Navigation Menu</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            transition: background-color 0.3s;
+            z-index: 1000;
+        }
+
+        .navbar.scrolled {
+            background-color: #444; /* A slightly lighter shade of black */
+        }
+
+        .navbar-brand {
+            font-size: 1.5em;
+        }
+
+        .navbar-menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .navbar-item {
+            margin-left: 20px;
+        }
+
+        .navbar-item a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .navbar-item a:hover {
+            color: #ffcc00; /* Highlight color on hover */
+        }
+
+        .content {
+            padding: 100px 20px;
+            height: 2000px; /* Added height to enable scrolling */
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="navbar-brand">PRODIGY INFOTECH</div>
+        <ul class="navbar-menu">
+            <li class="navbar-item"><a href="#">01</a></li>
+            <li class="navbar-item"><a href="#">Comillas Negras</a></li>
+            <li class="navbar-item"><a href="#">Task-01</a></li>
+            <li class="navbar-item"><a href="#">Responsive Landing Page</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <h1>Welcome to Prodigy Infotech</h1>
+        <p>Scroll down to see the navigation menu change color.</p>
+        <!-- Add more content here to enable scrolling -->
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.querySelector('.navbar');
+
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
